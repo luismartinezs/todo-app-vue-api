@@ -2,9 +2,13 @@ const getToDos = (req, res, db) => {
   db.select('*')
     .from('todo')
     .then(todos => {
-      res.json(todos)
+      if (todos) {
+        res.json(todos)
+      } else {
+        res.status(400).json('Unable to get to-dos')
+      }
     })
-    .catch(() => res.status(400).json('error getting to dos'))
+    .catch(() => res.status(400).json('Error getting to-dos'))
 }
 
 const createToDo = (req, res, db) => {
@@ -33,7 +37,8 @@ const updateToDo = (req, res, db) => {
       } else {
         res.status(400).json('Unable to update to-do')
       }
-    }).catch(() => res.status(400).json('Error updating to-do'))
+    })
+    .catch(() => res.status(400).json('Error updating to-do'))
 }
 
 const deleteToDo = (req, res, db) => {
@@ -47,7 +52,8 @@ const deleteToDo = (req, res, db) => {
       } else {
         res.status(400).json('Unable to delete to-do')
       }
-    }).catch(() => res.status(400).json('Error deleting to-do'))
+    })
+    .catch(() => res.status(400).json('Error deleting to-do'))
 }
 
 module.exports = {
