@@ -24,8 +24,12 @@ INSERT INTO todo (title, description, done) VALUES ('Study', 'Read biology book'
 ### Docker
 
 Have docker running in your machine, and be logged in with your docker id
+Make sure postgresql is not running locally or it will keep the required ports busy
+
 ```
 docker-compose build
+docker-compose up -d
+docker-compose down # Bring down the containers
 ```
 
 

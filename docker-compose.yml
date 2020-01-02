@@ -1,31 +1,31 @@
 version: '3'
-
 services:
-
   # Backend API
   todo-app-vue-api:
-      container_name: backend
-      build: ./
-      command: npm start:dev
-      working_dir: /usr/src/todo-app-vue-api
-      ports:
-        - "3000:3000"
-      environment:
-          DB_USER: api_user
-          DB_PASSWORD: password
-          DB_HOST: localhost
-          DB_PORT: 5432
-          DB_DATABASE: todos_api
-      volumes:
-        - ./:/usr/src/todo-app-vue-api
+    container_name: backend
+    build: ./
+    depends_on:
+      - postgres
+    command: npm start:dev
+    working_dir: /usr/src/todo-app-vue-api
+    ports:
+      - "3000:3000"
+    environment:
+        DB_USER: api_user
+        DB_PASSWORD: password
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_DATABASE: todos_api
+    volumes:
+      - ./:/usr/src/todo-app-vue-api
 
   # Postgres
   postgres:
     environment:
-      POSTGRES_USER: api_user
+      # POSTGRES_USER: api_user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: todos_api
-      POSTGRES_HOST: postgres
+      # POSTGRES_DB: todos_api
+      # POSTGRES_HOST: postgres
     container_name: postgres
     build: ./postgres
     ports:
