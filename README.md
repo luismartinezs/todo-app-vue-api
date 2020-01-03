@@ -21,9 +21,17 @@ CREATE TABLE todo (ID SERIAL PRIMARY KEY, title VARCHAR(255) NOT NULL, descripti
 INSERT INTO todo (title, description, done) VALUES ('Study', 'Read biology book', TRUE);
 ```
 
-`npm run start:dev`
+`npm run start:dev` or `npm run start`
 
 ### Docker
+
+```
+docker build -t todo-app .
+docker run -it -p 3000:3000 todo-app # Expose port 3000 of container to port 3000 of localhost
+npm run start # Inside docker container
+```
+
+### Docker compose
 
 Have docker running in your machine, and be logged in with your docker id
 Make sure postgresql is not running locally or it will keep the required ports busy
