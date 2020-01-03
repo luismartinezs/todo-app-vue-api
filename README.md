@@ -38,8 +38,8 @@ Make sure any services like postgresql are not running locally or they will keep
 
 ```
 docker-compose up -build
-docker-compose up -d
-docker-compose down # Bring down the containers (do it at the start, to avoid any existing container interfering)
+docker-compose up -d # -d to run in the background
+docker-compose down # Bring down all the services (do it at the start, to avoid any existing container interfering)
 ```
 
 

@@ -1,6 +1,8 @@
 version: "3.7"
 
 services:
+
+  # Backend API
   todo-app-vue-api:
     container_name: backend
     build: ./ # Use Dockerfile to build the container
