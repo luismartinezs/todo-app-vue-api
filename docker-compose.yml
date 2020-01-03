@@ -8,5 +8,5 @@ services:
     working_dir: /usr/src/todo-app-vue-api
     ports:
       - "3000:3000" # Map container port 3000 to port 3000 of local machine
-    volumes: 
-      - ./:/usr/src/todo-app-vue-api # Map local files to files in the container, to listen to changes in local files
+    # volumes: 
+    #   - ./:/usr/src/todo-app-vue-api # Map local files to files in the container, to listen to changes in local files
