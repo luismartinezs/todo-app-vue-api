@@ -21,6 +21,8 @@ CREATE TABLE todo (ID SERIAL PRIMARY KEY, title VARCHAR(255) NOT NULL, descripti
 INSERT INTO todo (title, description, done) VALUES ('Study', 'Read biology book', TRUE);
 ```
 
+`npm run start:dev`
+
 ### Docker
 
 Have docker running in your machine, and be logged in with your docker id
