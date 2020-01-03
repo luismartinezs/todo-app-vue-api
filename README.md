@@ -34,12 +34,12 @@ npm run start # Inside docker container
 ### Docker compose
 
 Have docker running in your machine, and be logged in with your docker id
-Make sure postgresql is not running locally or it will keep the required ports busy
+Make sure any services like postgresql are not running locally or they will keep the required ports busy
 
 ```
-docker-compose build
+docker-compose up -build
 docker-compose up -d
-docker-compose down # Bring down the containers
+docker-compose down # Bring down the containers (do it at the start, to avoid any existing container interfering)
 ```
 
 

@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  todo-app-vue-api:
+    container_name: backend
+    build: ./ # Use Dockerfile to build the container
+    command: npm start
+    working_dir: /usr/src/todo-app-vue-api
+    ports:
+      - "3000:3000"

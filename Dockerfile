@@ -1,6 +1,6 @@
 FROM node:erbium
 
-WORKDIR /home/app
+WORKDIR /usr/src/todo-app-vue-api
 
 COPY . .
 

@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const knex = require('knex')
+const morgan = require('morgan') // Logging
 
 const toDo = require('./controller/to-do')
 
@@ -14,6 +15,7 @@ const db = knex({
 
 const app = express()
 
+app.use(morgan('combined'))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
