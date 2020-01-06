@@ -10,5 +10,23 @@ services:
     working_dir: /usr/src/todo-app-vue-api
     ports:
       - "3000:3000" # Map container port 3000 to port 3000 of local machine
-    # volumes: 
-    #   - ./:/usr/src/todo-app-vue-api # Map local files to files in the container, to listen to changes in local files
+    environment:
+      DB_USER: api_user
+      DB_PASSWORD: password
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_DATABASE: todos_api
+    volumes: 
+      - ./:/usr/src/todo-app-vue-api # Map local files to files in the container, to listen to changes in local files
+  
+  # Postgres
+  postgres:
+    environment:
+      POSTGRES_USER: api_user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: todos_api
+      POSTGRES_HOST: postgres
+    container_name: postgres
+    build: ./postgres
+    ports:
+      - "5432:5432"
