@@ -17,7 +17,7 @@ services:
     volumes: 
       - ./:/usr/src/todo-app-vue-api # Map local files to files in the container, to listen to changes in local files
   
-  # Postgres
+  # Postgres. Docs: https://hub.docker.com/_/postgres/
   postgres:
     environment:
       POSTGRES_USER: api_user
@@ -25,7 +25,7 @@ services:
       POSTGRES_DB: todos_api
       POSTGRES_HOST: postgres
     # container_name: postgres
-    # build: ./postgres
-    image: postgres
+    build: ./postgres
+    # image: postgres
     ports:
       - "5432:5432"
