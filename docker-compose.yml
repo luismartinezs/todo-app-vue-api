@@ -12,11 +12,6 @@ services:
       - "3000:3000" # Map container port 3000 to port 3000 of local machine
     environment:
       DB_URI: postgres://api_user:password@postgres:5432/todos_api
-      # DB_USER: api_user
-      # DB_PASSWORD: password
-      # DB_HOST: postgres # We can't use localhost as a host from inside a container, we need to reference the name of the service
-      # DB_PORT: 5432
-      # DB_DATABASE: todos_api
     links:
       - postgres
     volumes: 
