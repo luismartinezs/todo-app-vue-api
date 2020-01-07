@@ -6,11 +6,17 @@ const morgan = require('morgan') // Logging
 
 const toDo = require('./controller/to-do')
 
-const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`
+// const user = process.env.DB_USER
+// const password = process.env.DB_PASSWORD
+// const host = process.env.DB_HOST
+// const port = process.env.DB_PORT
+// const database = process.env.DB_DATABASE
+
+// const connectionString = `postgresql://${user}:${password}@${host}:${port}/${database}`
 
 const db = knex({
   client: 'pg',
-  connection: connectionString
+  connection: process.env.DB_URI
 })
 
 const app = express()

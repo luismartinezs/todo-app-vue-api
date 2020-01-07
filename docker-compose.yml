@@ -11,11 +11,14 @@ services:
     ports:
       - "3000:3000" # Map container port 3000 to port 3000 of local machine
     environment:
-      DB_USER: api_user
-      DB_PASSWORD: password
-      DB_HOST: localhost
-      DB_PORT: 5432
-      DB_DATABASE: todos_api
+      DB_URI: postgres://api_user:password@postgres:5432/todos_api
+      # DB_USER: api_user
+      # DB_PASSWORD: password
+      # DB_HOST: postgres # We can't use localhost as a host from inside a container, we need to reference the name of the service
+      # DB_PORT: 5432
+      # DB_DATABASE: todos_api
+    links:
+      - postgres
     volumes: 
       - ./:/usr/src/todo-app-vue-api # Map local files to files in the container, to listen to changes in local files
   
@@ -26,7 +29,8 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: todos_api
       POSTGRES_HOST: postgres
-    container_name: postgres
-    build: ./postgres
+    # container_name: postgres
+    # build: ./postgres
+    image: postgres
     ports:
       - "5432:5432"
