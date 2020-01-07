@@ -1,4 +1,4 @@
-BEGIN TRANSACTION;
+BEGIN TRANSACTION; -- BEGIN TRANSACTION ... COMMIT ==> If something fails inside, don't do anything
 
 CREATE TABLE todo (
   ID SERIAL PRIMARY KEY,
