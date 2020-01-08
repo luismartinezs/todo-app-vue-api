@@ -37,9 +37,9 @@ Have docker running in your machine, and be logged in with your docker id
 Make sure any services like postgresql are not running locally or they will keep the required ports busy
 
 ```
-docker-compose up -build
-docker-compose up -d # -d to run in the background
 docker-compose down # Bring down all the services (do it at the start, to avoid any existing container interfering)
+docker-compose up --build
+docker-compose up -d # -d to run in the background
 ```
 
 
