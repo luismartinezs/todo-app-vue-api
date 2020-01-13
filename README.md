@@ -25,6 +25,8 @@ INSERT INTO todo (title, description, done) VALUES ('Study', 'Read biology book'
 
 ### Docker
 
+You may need to run `sudo chmod 777 /var/run/docker.sock` on Ubuntu
+
 ```
 docker build -t todo-app .
 docker run -it -p 3000:3000 todo-app # Expose port 3000 of container to port 3000 of localhost
