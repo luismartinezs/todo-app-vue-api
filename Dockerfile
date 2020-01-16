@@ -1,4 +1,4 @@
-FROM node:erbium
+FROM node:12
 
 WORKDIR /usr/src/todo-app-vue-api
 

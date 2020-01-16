@@ -1,11 +1,13 @@
 require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt-nodejs')
 const knex = require('knex')
 const cors = require('cors')
 const morgan = require('morgan') // Logging
 
 const toDo = require('./controller/to-do')
+const signin = require('./controller/signin')
 
 const db = knex({
   client: 'pg',
@@ -36,6 +38,10 @@ app.put('/api/v1/todo/:id', (req, res) => {
 
 app.delete('/api/v1/todo/:id', (req, res) => {
   toDo.deleteToDo(req, res, db)
+})
+
+app.get('/api/v1/signin', (req, res) => {
+  signin.handleSignin(db, bcrypt, req, res)
 })
 
 app.listen(3000, () => {
