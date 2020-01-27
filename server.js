@@ -1,13 +1,13 @@
 require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
-const bcrypt = require('bcrypt-nodejs')
+const bcrypt = require('bcrypt')
 const knex = require('knex')
 const cors = require('cors')
 const morgan = require('morgan') // Logging
 
 const toDo = require('./controller/to-do')
-const signin = require('./controller/signin')
+const login = require('./controller/login')
 
 const db = knex({
   client: 'pg',
@@ -40,9 +40,7 @@ app.delete('/api/v1/todo/:id', (req, res) => {
   toDo.deleteToDo(req, res, db)
 })
 
-app.get('/api/v1/signin', (req, res) => {
-  signin.handleSignin(db, bcrypt, req, res)
-})
+app.post('/api/v1/login', login.signinAuthentication(db, bcrypt))
 
 app.listen(3000, () => {
   console.log('app is running on port 3000')
