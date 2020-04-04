@@ -44,6 +44,13 @@ docker-compose up --build
 docker-compose up -d # -d to run in the background
 ```
 
+If you get an error such as:
+
+```
+ERROR: Couldn't connect to Docker daemon - you might need to run `docker-machine start default`.
+```
+
+Try running the command `sudo chmod 777 /var/run/docker.sock`.
 
 ## Useful references
 
