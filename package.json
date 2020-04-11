@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start:dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "compose": "docker-compose down && docker-compose up --build"
   },
   "engines": {
     "node": "12.x"

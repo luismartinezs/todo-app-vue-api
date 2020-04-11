@@ -42,6 +42,10 @@ const signinAuthentication = (db, bcrypt) => (req, res) => {
     })
 }
 
+// Login with user and password
+
+// Login with jwt
+
 module.exports = {
   handleLogin,
   signinAuthentication

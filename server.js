@@ -8,6 +8,7 @@ const morgan = require('morgan') // Logging
 
 const toDo = require('./controller/to-do')
 const login = require('./controller/login')
+const register = require('./controller/register')
 
 const db = knex({
   client: 'pg',
@@ -39,6 +40,8 @@ app.put('/api/v1/todo/:id', (req, res) => {
 app.delete('/api/v1/todo/:id', (req, res) => {
   toDo.deleteToDo(req, res, db)
 })
+
+app.post('/api/v1/register', register.handleRegister(db, bcrypt))
 
 app.post('/api/v1/login', login.signinAuthentication(db, bcrypt))
 
